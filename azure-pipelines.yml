@@ -7,7 +7,7 @@ steps:
   displayName: 'Maven app/pom.xml'
   inputs:
     mavenPomFile: 'app/pom.xml'
-    codeCoverageToolOption: Cobertura
+    
 
 
 - task: CopyFiles@2
@@ -25,6 +25,7 @@ steps:
   condition: succeededOrFailed()
 - task: ArchiveFiles@2
   inputs:
+    codeCoverageToolOption: Cobertura
     rootFolderOrFile: '$(Build.BinariesDirectory)'
     includeRootFolder: true
     archiveType: 'zip'
